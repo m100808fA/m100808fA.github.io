@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Faseeh — Portfolio</title>
+<meta name="description" content="Portfolio of Muhammad Faseeh — projects, skills, and ways to work together.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EFF1EC;
+    --paper-alt: #E4E7DF;
+    --ink: #1D2126;
+    --ink-soft: #4A4F52;
+    --accent: #2F6F4E;
+    --accent-warm: #B8862E;
+    --line: #CBCEC4;
+    --max: 700px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+
+  a:hover { color: var(--accent-warm); }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Nav */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(239, 241, 236, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+
+  nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    gap: 10px;
+  }
+
+  nav .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  nav .links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  nav .links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  nav .links a:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 56px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    object-fit: cover;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    max-width: 12ch;
+  }
+
+  .hero .tagline {
+    margin-top: 14px;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  .hero .current {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  .hero .current .dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 8px;
+  }
+
+  .hero-links {
+    margin-top: 26px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .hero-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  /* Sections */
+  section {
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 22px;
+  }
+
+  section > .wrap > p.lead {
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin-bottom: 8px;
+  }
+
+  #about p {
+    max-width: 62ch;
+    color: var(--ink-soft);
+  }
+
+  /* Projects */
+  .project {
+    padding: 22px 0 22px 20px;
+    border-left: 3px solid var(--line);
+    margin-bottom: 8px;
+  }
+
+  .project:hover { border-left-color: var(--accent); }
+
+  .project h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .tags {
+    margin: 8px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tags span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    background: var(--paper-alt);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .project p.desc {
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0 0 10px;
+  }
+
+  .project a {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 40px;
+  }
+
+  .service {
+    border-left: 3px solid var(--accent-warm);
+    padding-left: 18px;
+  }
+
+  .service h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .service p {
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    margin: 0;
+  }
+
+  /* Connect */
+  .connect-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .connect-links a {
+    font-size: 1.02rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  footer {
+    padding: 30px 0 50px;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    nav .links { gap: 16px; }
+    .hero { padding: 56px 0 44px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Muhammad Faseeh</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">What I Do</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <img class="avatar" src="/Users/m.faseeh10/Downloads/Profile.PNG" alt="Muhammad Faseeh">
+    <h1>Hi, I'm Muhammad Faseeh.</h1>
+    <p class="tagline"><!-- Replace with your role, e.g. "Computer Science student and full-stack developer." -->Your role or short identity statement goes here.</p>
+    <p class="current"><span class="dot"></span><!-- Replace with what you're currently learning or building -->Currently learning/building: replace this with what you're working on right now.</p>
+    <div class="hero-links">
+      <a href="https://github.com/m100808fA" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <!-- Replace this paragraph with 2-4 sentences: your background, what got you into programming/tech, and what you're focused on now. -->
+    <p>
+      I'm a final-year Computer Science student focused on full-stack development and AI-assisted coding. 
+      I like picking up new languages and frameworks quickly — right now that means building with Django and Kotlin, 
+      while branching out into React, TypeScript, and a few mobile frameworks on the side. 
+
+
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">A few things I've built. More on my GitHub.</p>
+
+    <article class="project">
+      <h3>Project One</h3>
+      <p class="tags"><span>Language</span><span>Framework</span><span>Tool</span></p>
+      <!-- Replace with a 1-2 sentence description: what it does, the problem it solves, one interesting technical detail. -->
+      <p class="desc">One or two sentences describing what this project does and what problem it solves.</p>
+      <a href="https://github.com/your-username/project-one" target="_blank" rel="noopener">View repository</a>
+    </article>
+
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>What I Can Do</h2>
+    <p class="lead">Edit, remove, or add to these based on what you actually offer.</p>
+    <div class="services-grid" style="margin-top: 24px;">
+
+      <div class="service">
+        <h3>Web Development</h3>
+        <p>Building full-stack apps with Django and Django REST Framework on the backend, and currently expanding into React, TypeScript, and Node.js on the frontend.
+
+</p>
+      </div>
+
+      <div class="service">
+        <h3>Mobile App Development</h3>
+        <p>Learning Kotlin for native Android development, with Swift/SwiftUI and Flutter/Dart next on my list.</p>
+      </div>
+
+      <div class="service">
+        <h3>UI/UX Design</h3>
+        <p>Comfortable sketching and prototyping interfaces in Figma as part of my app development coursework.</p>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap">
+    <h2>Let's Connect</h2>
+    <p class="lead">Happy to talk about a project, an opportunity, or just to compare notes.</p>
+    <div class="connect-links">
+      <a href="https://github.com/m100808fA" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto: fasem@farmingdale.edu">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span id="year"></span> Muhammad Faseeh. Built with HTML &amp; CSS, hosted on GitHub Pages.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = '© ' + new Date().getFullYear();
+</script>
+
+</body>
+</html>
